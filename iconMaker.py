@@ -1,3 +1,4 @@
+import os
 from PIL import Image
 
 # Convert any png in this dir to ico file
@@ -10,7 +11,7 @@ def convert(image, icon):
         img = img.convert("RGBA")
 
         # Resize the image to 256x256 (recommended for ICO format)
-        img = img.resize((256, 256), Image.ANTIALIAS)
+        img = img.resize((256, 256), Image.LANCZOS)
 
         # Save as ICO
         img.save(os.path.join(os.getcwd(), icon), format="ICO", sizes=[(256, 256)])
